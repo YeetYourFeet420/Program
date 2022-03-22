@@ -15,6 +15,10 @@ def Effective(x, y):
             return "Effective"
         elif y == "Dark":
             return "Effective"
+        elif y == "Ice":
+            return "Super Effective"
+        elif y == "Ghost":
+            return "Effective"
     if x == "Water":
         if y == "Fire":
             return "Super Effective"
@@ -67,6 +71,10 @@ def Effective(x, y):
             return "Not Very Effective"
         elif y == "Dark":
             return "Immune"
+        elif y == "Ice":
+            return "Effective"
+        elif y == "Ghost":
+            return "Effective"
     if x == "Dark":
         if y == "Fire":
             return "Effective"
@@ -80,6 +88,27 @@ def Effective(x, y):
             return "Super Effective"
         elif y == "Dark":
             return "Not Very Effective"
+        elif y == "Ice":
+            return "Effective"
+        elif y == "Ghost":
+            return "Super Effective"
+    if x == "Ice":
+        if y == "Fire":
+            return "Not Very Effective"
+        elif y == "Water":
+            return "Not Very Effective"
+        elif y == "Grass":
+            return "Super Effective"
+        elif y == "Fighting":
+            return "Effective"
+        elif y == "Psychic":
+            return "Effective"
+        elif y == "Dark":
+            return "Effective"
+        elif y == "Ice":
+            return "Not Very Effective"
+        elif y == "Ghost":
+            return "Effective"
  
 # We define the Effectiveness_Multiplier and set our parameter for Effectivness
 def Effectiveness_Multiplier(Effectiveness):
@@ -143,6 +172,32 @@ def Move_Type(move_name):
         return "Water"
     if move_name == "Ember":
         return "Fire"
+    if move_name == "Ice Beam":
+        return "Ice"
+    if move_name == "Tackle":
+        return "Normal"
+    if move_name == "Shadow Ball":
+        return "Ghost"
+    if move_name == "Psychic":
+        return "Psychic"
+    if move_name == "Dark Pulse":
+        return "Dark"
+
+def Move_Power(move_name):
+    if move_name == "Water Gun":
+        return 60
+    if move_name == "Ember":
+        return 60
+    if move_name == "Tackle":
+        return 50
+    if move_name == "Ice Beam":
+        return 90
+    if move_name == "Shadow Ball":
+        return 80
+    if move_name == "Psychic":
+        return 90
+    if move_name == "Dark Pulse":
+        return 80
     
 
 print("What is the name of your Pokemon?")
@@ -157,5 +212,5 @@ print("What pokemon are you attacking?")
 Defending_name = input()
 print("What is the pokemons defense stat?")
 Defense_stat = int(input())
-dmg = final(Lvl, 60, Attack_stat, Defense_stat ,1, Pokemon_type(name), Move_Type(Attack_name), Pokemon_type(Defending_name))
+dmg = final(Lvl, Move_Power(Attack_name), Attack_stat, Defense_stat ,1, Pokemon_type(name), Move_Type(Attack_name), Pokemon_type(Defending_name))
 print("Attack damage was:", dmg)
