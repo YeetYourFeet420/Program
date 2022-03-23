@@ -19,6 +19,10 @@ def Effective(x, y):
             return "Super Effective"
         elif y == "Ghost":
             return "Effective"
+        elif y == "Ice":
+            return "Super Effective"
+        elif y == "Ghost":
+            return "Effective"
     if x == "Water":
         if y == "Fire":
             return "Super Effective"
@@ -31,6 +35,10 @@ def Effective(x, y):
         elif y == "Psychic":
             return "Effective"
         elif y == "Dark":
+            return "Effective"
+        elif y == "Ice":
+            return "Effective"
+        elif y == "Ghost":
             return "Effective"
     if x == "Grass":
         if y == "Water":
@@ -45,6 +53,10 @@ def Effective(x, y):
             return "Effective"
         elif y == "Dark":
             return "Effective"
+        elif y == "Ice":
+            return "Effective"
+        elif y == "Ghost":
+            return "Effective"
     if x == "Fighting":
         if y == "Fire":
             return "Effective"
@@ -58,6 +70,10 @@ def Effective(x, y):
             return "Not Very Effective"
         elif y == "Dark":
             return "Super Effective"
+        elif y == "Ice":
+            return "Super Effective"
+        elif y == "Ghost":
+            return "Immune"
     if x == "Psychic":
         if y == "Fire":
             return "Effective"
@@ -109,6 +125,23 @@ def Effective(x, y):
             return "Not Very Effective"
         elif y == "Ghost":
             return "Effective"
+    if x == "Ghost":
+        if y == "Fire":
+            return "Effective"
+        elif y == "Water":
+            return "Effective"
+        elif y == "Grass":
+            return "Effective"
+        elif y == "Fighting":
+            return "Effective"
+        elif y == "Psychic":
+            return "Super Effective"
+        elif y == "Dark":
+            return "Not Very Effective"
+        elif y == "Ice":
+            return "Effective"
+        elif y == "Ghost":
+            return "Super Effective"
  
 # We define the Effectiveness_Multiplier and set our parameter for Effectivness
 def Effectiveness_Multiplier(Effectiveness):
@@ -214,3 +247,48 @@ print("What is the pokemons defense stat?")
 Defense_stat = int(input())
 dmg = final(Lvl, Move_Power(Attack_name), Attack_stat, Defense_stat ,1, Pokemon_type(name), Move_Type(Attack_name), Pokemon_type(Defending_name))
 print("Attack damage was:", dmg)
+
+class Stats():
+    def __init__(self, hp, atk, defense, spa, spd, spe):
+        self.hp = hp 
+        self.atk = atk
+        self.defense = defense
+        self.spa = spa
+        self.spd = spd
+        self.spe = spe
+        
+
+def Pokemon_stats(pokemon_name):
+    if pokemon_name == "Charmander":
+        return Stats(39,52,43,60,50,65)
+    if pokemon_name == "Charmeleon":
+        return Stats(58,64,58,80,65,80)
+    if pokemon_name == "Charizard":
+        return Stats(78,84,78,109,85,100)
+    if pokemon_name == "Squirtle":
+        return Stats(44,48,65,50,64,43)
+    if pokemon_name == "Wartortle":
+        return Stats(59,63,80,65,80,58)
+    if pokemon_name == "Blastoise":
+        return Stats(79,83,100,85,105,78)
+    if pokemon_name == "Bulbasaur":
+        return Stats(45,49,49,65,65,45)
+    if pokemon_name == "Ivysaur":
+        return Stats(60,62,63,80,80,60)
+    if pokemon_name == "Venasaur":
+        return Stats(80,82,83,100,100,80)
+
+
+class Pokemon():
+    def __init__(self, pokemon_name, name):
+        self.name = name
+        self.stats = Pokemon_stats(pokemon_name)
+        self.type = Pokemon_type(pokemon_name)
+        self.pokemon_name = pokemon_name
+        self.current_hp = self.stats
+        self.level = 1
+        self.moveset = "To-Do"
+        self.possible_moves = "To-Do"
+
+charz = Pokemon("Charizard", "Charzie")
+print(charz.current_hp)
