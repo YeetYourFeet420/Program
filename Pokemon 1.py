@@ -238,16 +238,16 @@ def Move_Power(move_name):
         return 80
     
 
-#print("What is the name of your Pokemon?")
-#name = input()
-#print("What level is your", name)
-#Lvl = int(input())
-#print("What move are you using?")
-#Attack_name = input()
-#print("What pokemon are you attacking?")
-#Defending_name = input()
-#dmg = final(Lvl, Move_Power(Attack_name), Attack_stat, Defense_stat ,1, Pokemon_type(name), Move_Type(Attack_name), Pokemon_type(Defending_name))
-#print("Attack damage was:", dmg)
+print("What is the name of your Pokemon?")
+name = input()
+print("What level is your", name)
+Lvl = int(input())
+print("What move are you using?")
+Attack_name = input()
+print("What pokemon are you attacking?")
+Defending_name = input()
+dmg = final(Lvl, Move_Power(Attack_name), Attack_stat, Defense_stat ,1, Pokemon_type(name), Move_Type(Attack_name), Pokemon_type(Defending_name))
+print("Attack damage was:", dmg)
 
 class Stats():
     def __init__(self, hp, atk, defense, spa, spd, spe):
@@ -293,7 +293,7 @@ class Pokemon():
         self.possible_moves = "To-Do"
     
     def attackedBY(self, attacking_pokemon, move_name):
-        dmg = final(attacking_pokemon.level, Move_Power(move_name), attacking_pokemon.current_atk, self.stats.defense ,1, Pokemon_type(name), Move_Type(attack_name), Pokemon_type(defending_name))
+        dmg = final(attacking_pokemon.level, Move_Power(move_name), self.stats.defense ,1, Pokemon_type(name), Move_Type(attack_name), Pokemon_type(defending_name))
         self.current_hp = self.current_hp - 
 
 
@@ -321,4 +321,10 @@ Type_Index = 6
 
 Bulbasaur_Stats = [45,49,49,65,65,45,"Grass"]
 Ivysaur_Stats = [60,62,63,80,80,60,"Grass"]
-
+Venasaur_Stats = [80,82,83,100,100,80,"Grass"]
+Charmander_Stats = [39,52,43,60,50,65,"Fire"]
+Charmeleon_Stats = [58,64,58,80,65,80,"Fire"]
+Charizard_Stats = [78,84,78,109,85,100,"Fire"]
+Squirtle_Stats = [44,48,65,50,64,43,"Water"]
+Wartortle_Stats = [59,63,80,65,80,58,"Water"]
+Blastoise_Stats = [79,83,100,85,105,78,"Water"]
