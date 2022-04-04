@@ -1,6 +1,7 @@
 # Figuring out Type Matchups. We define Effective with the parameters x and y. 
 # x being the attacking type and y being the defending type.
 import random
+from unicodedata import name
 def Effective(x, y):
     if x == "Fire":
         if y == "Grass":
@@ -205,6 +206,8 @@ def Move_Type(move_name):
         return "Water"
     if move_name == "Ember":
         return "Fire"
+    if move_name == "Vine Whip":
+        return "Grass"
     if move_name == "Ice Beam":
         return "Ice"
     if move_name == "Tackle":
@@ -221,6 +224,8 @@ def Move_Power(move_name):
         return 60
     if move_name == "Ember":
         return 60
+    if move_name == "Vine Whip":
+        return 45
     if move_name == "Tackle":
         return 50
     if move_name == "Ice Beam":
@@ -233,20 +238,16 @@ def Move_Power(move_name):
         return 80
     
 
-print("What is the name of your Pokemon?")
-name = input()
-print("What level is your", name)
-Lvl = int(input())
-print("What move are you using?")
-Attack_name = input()
-print("What is your Pokemons Attack Stat?")
-Attack_stat = int(input())
-print("What pokemon are you attacking?")
-Defending_name = input()
-print("What is the pokemons defense stat?")
-Defense_stat = int(input())
-dmg = final(Lvl, Move_Power(Attack_name), Attack_stat, Defense_stat ,1, Pokemon_type(name), Move_Type(Attack_name), Pokemon_type(Defending_name))
-print("Attack damage was:", dmg)
+#print("What is the name of your Pokemon?")
+#name = input()
+#print("What level is your", name)
+#Lvl = int(input())
+#print("What move are you using?")
+#Attack_name = input()
+#print("What pokemon are you attacking?")
+#Defending_name = input()
+#dmg = final(Lvl, Move_Power(Attack_name), Attack_stat, Defense_stat ,1, Pokemon_type(name), Move_Type(Attack_name), Pokemon_type(Defending_name))
+#print("Attack damage was:", dmg)
 
 class Stats():
     def __init__(self, hp, atk, defense, spa, spd, spe):
@@ -281,14 +282,43 @@ def Pokemon_stats(pokemon_name):
 
 class Pokemon():
     def __init__(self, pokemon_name, name):
-        self.name = name
+        self.nickname = name
         self.stats = Pokemon_stats(pokemon_name)
         self.type = Pokemon_type(pokemon_name)
         self.pokemon_name = pokemon_name
-        self.current_hp = self.stats
+        self.current_hp = self.stats.hp
+        self.current_atk = self.stats.atk
         self.level = 1
         self.moveset = "To-Do"
         self.possible_moves = "To-Do"
+    
+    def attackedBY(self, attacking_pokemon, move_name):
+        dmg = final(attacking_pokemon.level, Move_Power(move_name), attacking_pokemon.current_atk, self.stats.defense ,1, Pokemon_type(name), Move_Type(attack_name), Pokemon_type(defending_name))
+        self.current_hp = self.current_hp - 
 
-charz = Pokemon("Charizard", "Charzie")
-print(charz.current_hp)
+
+    def AttackingPokemonAttack():
+        Bulba.current_atk 
+
+
+
+
+
+
+Chara = Pokemon("Charmander","Fuego")
+Bulba = Pokemon("Bulbasaur","Onion")
+print(Chara.current_hp)
+Chara.attackedBY(Bulba,"Tackle")
+print(Chara.current_hp)
+
+HP_Stat = 0
+ATK_Stat = 1
+DEF_Stat = 2
+SPA_Stat = 3
+SPD_Stat = 4
+SPE_Stat = 5
+Type_Index = 6
+
+Bulbasaur_Stats = [45,49,49,65,65,45,"Grass"]
+Ivysaur_Stats = [60,62,63,80,80,60,"Grass"]
+
