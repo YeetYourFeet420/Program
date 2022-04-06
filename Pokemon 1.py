@@ -143,6 +143,17 @@ def Effective(x, y):
             return "Effective"
         elif y == "Ghost":
             return "Super Effective"
+    if x == "Fairy":
+        if y == "Fire":
+            return "Effective"
+        elif y == "Water":
+            return "Effective"
+        elif y == "Grass":
+            return "Effective"
+        elif y == "Fighting":
+            return "Not Very Effective"
+        elif y == "Psychic":
+            return
  
 # We define the Effectiveness_Multiplier and set our parameter for Effectivness
 def Effectiveness_Multiplier(Effectiveness):
