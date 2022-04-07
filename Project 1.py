@@ -32,13 +32,18 @@ def Sandwich(a,b,c):
 #No Visible Bread
 #Grab Keys
 #Walk to Car
+#Open Car Door
 #Get in Car
+#Close Car Door
 #Drive to store
 #Walk to bread aisle
 #Grab Bread
 #Walk to checkout
 #Pay for Bread
 #Walk back to car
+#Open Car Door
+#Get in Car
+#Close Car Door
 #Return Home
 #Go to Kitchen
 #Place Bread Down
